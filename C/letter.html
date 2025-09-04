@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail to My Best Friend</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #d6f7ff, #a4d4f2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.mailbox {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    background: #ff6f61;
+    border-radius: 90px 90px 0 0; /* Rounded top edges */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.mail-lid {
+    position: absolute;
+    width: 300px;
+    height: 90px;
+    background: #ff867f;
+    border-radius: 90px 90px 0 0;
+    top: -90px;
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mail-lid.open {
+    transform: translateY(-30px);
+}
+
+.mail-body {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.mail-flag {
+    position: absolute;
+    width: 20px;
+    height: 120px;
+    background: #000;
+    top: -70px;
+    right: -10px;
+    border-radius: 5px;
+}
+
+.mail-flag-knob {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #666;
+    top: 30px;
+    left: -5px;
+    border-radius: 50%;
+}
+
+.mail-letters {
+    position: absolute;
+    top: -40px;
+    right: 30px;
+    width: 80px;
+    height: 120px;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    transform: rotate(-15deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mail-pole {
+    position: absolute;
+    bottom: -150px;
+    left: 110px;
+    width: 80px;
+    height: 200px;
+    background: #8b5a2b;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.smiley-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smiley-face::before,
+.smiley-face::after {
+    content: "😊";
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+}
+
+.smiley-face::before {
+    left: 50px;
+}
+
+.smiley-face::after {
+    right: 50px;
+}
+        .mail-body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .open-button {
+            background: #4b79a1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 3.2s ease, background 3.3s ease;
+        }
+
+        .open-button:hover {
+            background: #283e51;
+            transform: scale(1.1);
+        }
+
+        .letter {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px;
+            max-width: 500px;
+            margin: 20px auto;
+            animation: fadeIn 1s;
+        }
+
+        .letter h1 {
+            color: #4b79a1;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .letter p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+      .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://cdn-icons-png.flaticon.com/512/138/138533.png') no-repeat center;
+            background-size: contain;
+            animation: burst 1.5s ease-in-out forwards;
+            pointer-events: none;
+}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes burst {
+            from {
+                transform: scale(2.5) translate(2, 0);
+                opacity: 2;
+            }
+            to {
+                transform: scale(3) translate(calc(200px * var(--x)), calc(200px * var(--y)));
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mailbox">
+            <div class="mail-lid"></div>
+            <div class="mail-body">
+                <button class="open-button" onclick="openMail()">secret message only for ADIL'S eyes</button>
+            </div>
+        </div>
+        <div class="letter hidden">
+            <h1>!! Wanted an ASS to FUCK !!</h1>
+            <p> immediate requierment for an unfucked asshole with najeem genes.more payment if najeem is being delivered for use.
+                <br><br>
+               
+                Yours truly,<br>
+                KAAPICOCO
+            </p>
+        </div>
+    </div>
+    <script>
+        function openMail() {
+            const lid = document.querySelector('.mail-lid');
+            lid.classList.add('open');
+
+             // Create heart burst effect
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.setProperty('--x', (Math.random() - 0.5).toFixed(2));
+                heart.style.setProperty('--y', (Math.random() - 0.5).toFixed(2));
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+
+            setTimeout(() => {
+                document.querySelector('.mailbox').style.display = 'none';
+                document.querySelector('.letter').classList.remove('hidden');
+            }, 600);
+        }
+    </script>
+</body>
+</html>

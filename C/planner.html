@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Planner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #faf3e0;
+      background-image: url('https://i.imgur.com/lGxP6Ci.png'), /* Bear */
+                        url('https://i.imgur.com/qIWulOE.png'), /* Coffee */
+                        url('https://i.imgur.com/GHu4G6e.png'), /* Tea */
+                        url('https://i.imgur.com/2RRHq4k.png'); /* Heart */
+      background-repeat: no-repeat;
+      background-position: top left, top right, bottom left, bottom right;
+      background-size: 70px, 70px, 70px, 70px;
+    }
+
+    .planner-container {
+      width: 95%; /* Adjusted to be wider */
+      max-width: 1200px; /* Optional: Set a max width */
+      background-color: #fff5f7;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ffd9e0;
+      background-image: linear-gradient(to bottom, #ffd9e0 1px, transparent 1px);
+      background-size: 100% 30px;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff8ba7;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .task-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ffd9e0;
+      border-radius: 10px;
+      font-size: 1em;
+      background-color: #ffebee;
+      color: #6b6b6b;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #ff8ba7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffb3c1;
+    }
+
+    #task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .task-item {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #f0f8ff;
+      border: 2px solid #cce7ff;
+      border-radius: 10px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .task-item.checked {
+      background-color: #e0ffeb;
+      border: 2px solid #c1f0c9;
+      color: #a8a8a8;
+    }
+
+    .task-item .task-name {
+      font-size: 1em;
+      color: #6b6b6b;
+      margin-bottom: 8px;
+    }
+
+    .task-item input[type="checkbox"] {
+      margin-right: 10px;
+      accent-color: #ff8ba7;
+      transform: scale(1.2);
+    }
+
+    /* Icons beside each task */
+    .task-icon {
+      position: absolute;
+      left: -25px;
+      font-size: 1.2em;
+      top: 12px;
+    }
+
+    /* Different pastel colors for tasks */
+    .task-item:nth-child(odd) {
+      background-color: #fff5f7;
+      border-color: #ffebf0;
+    }
+
+    .task-item:nth-child(even) {
+      background-color: #f0f8ff;
+      border-color: #d0efff;
+    }
+
+    /* Notes section */
+    .task-notes {
+      display: block;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ffd1dc;
+      background-color: #fffaf2;
+      font-size: 1em;
+      color: #6b6b6b;
+      width: 100%; /* Set to 100% width */
+      height: 600px; /* Large height for double-page writing space */
+      resize: none;
+      overflow-y: scroll; /* Scroll if text overflows */
+    }
+
+    /* Strikethrough styling when task is completed */
+    .task-item.checked .task-name {
+      text-decoration: line-through;
+      color: #a8a8a8;
+    }
+  </style>
+</head>
+<body>
+  <div class="planner-container">
+    <h1>📚 My Cute Math Planner 💖</h1>
+    <div class="task-input">
+      <input type="text" id="task-input" placeholder="Enter a math topic...">
+      <button onclick="addTask()">Add</button>
+    </div>
+    <ul id="task-list"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById("task-input");
+      const taskText = taskInput.value.trim();
+
+      if (taskText) {
+        const taskList = document.getElementById("task-list");
+
+        const taskItem = document.createElement("li");
+        taskItem.className = "task-item";
+
+        // Choose a random icon for each task
+        const icons = ["🐻", "☕", "🐻", "🐻"];
+        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+
+        const taskIcon = document.createElement("span");
+        taskIcon.className = "task-icon";
+        taskIcon.innerText = randomIcon;
+
+        const taskName = document.createElement("span");
+        taskName.className = "task-name";
+        taskName.innerText = taskText;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", () => {
+          taskItem.classList.toggle("checked", checkbox.checked);
+        });
+
+        // Notes area for each task
+        const taskNotes = document.createElement("textarea");
+        taskNotes.className = "task-notes";
+        taskNotes.placeholder = "Add key points about this topic...";
+
+        taskItem.appendChild(taskIcon);
+        taskItem.appendChild(checkbox);
+        taskItem.appendChild(taskName);
+        taskItem.appendChild(taskNotes);
+        taskList.appendChild(taskItem);
+
+        taskInput.value = "";
+      }
+    }
+  </script>
+</body>
+</html>

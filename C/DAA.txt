@@ -1,0 +1,12 @@
+bellmen-dynamic, 
+djkstras-greedy, 
+greedy dynamic difference, 
+matrix chain multiplication--formula
+0/1 knapsac- dynamic programming.
+
+reccurance relation il divide &conquer working.
+quick sort.
+prims kruskel
+
+
+

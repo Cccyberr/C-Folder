@@ -1,0 +1,437 @@
+SEAAAAAAAA
+--------------------
+
+* IDE - (integrated devolopment environment), coding platform like vs, eclipse etc..
+
+* variable - character to store any data, should contain datatype.
+
+* datatype - int, float, char.
+
+* variable declaration - (int a ; ).
+
+* variable initialisation - (int a = 10;).
+
+* operators -   +, -, *, /, %, = .
+
+* printf(" enter text");
+
+* & - ampersand
+
+*scanf - scanf kodukumbol eppozhum datatype with in double quotes kodukenam, quotation close cheytha shesham variable name koukenam, variable name should start with &(ampersand).
+
+*printf - printf kodukumbol eppozhum comment quotes il koduthit end il '  : datatype"  ' koduthit comma itt variable name kodukenam.
+
+
+*SCANNING PROPERTIES FOR DIFFRENT DATA TYPES
+-------------------------------------------------------------------------
+                                        
+                                          * scanf("%d",& variablename)
+
+* int = %d
+* float = %f
+* char = %c
+* string = %s
+
+
+eg: int a;
+	printf("enter number: ");
+	scanf(%d, &a);
+	printf("value entered is: %d",a);
+
+--------------------------------------------------------------------------
+
+                              SUM OF THREE INTEGERS
+
+Eg:  int main(void) {
+	int var1, var2, var3;
+	
+	printf("enter value of numbers: ");
+*	scanf("%d%d ",&var1, &var2);
+	scanf("%d", &var3);
+	
+	int sum = var1 + var2 + var3;
+*	printf("the sum of the three numbers is: %d",sum);
+	
+	return EXIT_SUCCESS ;
+	}
+
+--------------------------------------------------------------------------
+
+		OPERATORS AND TYPE OF OPERATORS
+
+
+arithematic operator -                   +, -, *, /, %  .
+relational operator -                  ==, <, >, <=, >=  .
+logical operator -                       &&(and), !, ||(or) .
+assignment operator -                    ==, +=, -= .
+
+
+* =    -     assign
+* ==     -     equalto
+
+--------------------------------------------------------------------------
+
+			AVERAGE OF THREE NUMBERS
+
+Eg: int main(void){
+	int num1,num2,num3;
+	printf("enter numbers: ");
+	scanf("%d %d %d", &num1,&num2,&num3);
+	
+	int sum = num1 + num2 + num3;
+	float average = sum/3;
+	printf("the average of numbers: %f",average);
+
+	return EXIT_SUCCESS;
+}
+	
+
+--------------------------------------------------------------------------
+
+	    SWAPPING VARIABLE VALUES WITH TEMP
+
+temp = a
+a=b
+b=temp
+
+Eg: int main(void){
+	int a,b,temp;
+	printf("enter the values for a, b");
+	scanf("%d %d", &a, &b);
+	printf("value of a and b is:a=%d , b=%d", a,b);
+	temp = a;
+	a = b;
+	b = temp;
+	printf("value of a and b is:a=%d, b=%d", a,b);
+	return EXIT_SUCCESS;
+}
+
+
+	SWAPPING VARIABLE VALUES WITHOUT TEMP
+                              -----------------------------------
+
+Eg: int main(void){
+	int a =10;
+	int b=20;
+	A= a + b;
+	B= a-b;
+	A= a-b;
+	printf("value of a and b is:a=%d, b=%d", a,b);
+
+return 0;
+}
+
+--------------------------------------------------------------------------
+
+ 			CHAR INPUT FROM USER
+
+Eg: int main(void){
+	char name;
+	printf("enter name: ");
+	scanf("%c", &name);
+	printf("entered name:%c ", name);
+ 	return 0;
+}
+--------------------------------------------------------------------------
+
+			 CONTROL STATEMENTS IN C
+
+
+* if else
+* if else if
+* switch
+
+
+Eg: int main(void){
+	int a;
+	printf("enter value of a: ");
+	scanf("%d", &a);
+	
+	if (a<0){
+	printf("a is positive number");}
+	else{
+	printf("a is negative number");}
+	return EXIT_SECCESS;
+}
+
+
+Eg:int main(void){
+	int a,b,c;
+	printf("enter value of a,b,c: ");
+	scanf("%d %d %d", &a,&b,&c);
+	
+	if (a>b && a>c){
+	printf("a is greatest integer");
+	    }
+
+	else if (b>a && b>c){
+	printf("b is greatest integer");
+			}
+
+	else{
+	printf("c is greatest integer");}
+	return 0;
+		}
+
+                     
+			
+				          USAGE OF SWITCH
+                             -----------------------------------------
+
+
+Eg:
+int main(void){
+int a = 4, b=2, choice, result ;
+printf("Enter 1 for '+', 2 for '-', 3 for '*': ");
+scanf("%d",&choice);
+
+switch(choice){
+case 1: 
+result = a+b;
+printf("result:%d", result);
+break;
+
+case 2: 
+result = a-b;
+printf("result:%d", result);
+
+break;
+
+case 3: 
+result = a*b;
+printf("result:%d", result);
+
+break;
+
+default:
+printf("wrong choice");
+	}
+
+return 0;
+}
+
+----------------------------------------------------------------------------
+
+				INCREMENT-PRE & POST
+
+* ++a : pre increment  = a+1
+* a++ : post increment = a
+* a-- : post increment = a
+* --a : pre increment = a-1
+
+Eg:
+a=10;
+b=a++;
+a will become 11,b will be 10 bcs a comes first not ++
+
+a=10;
+b=++a;
+b will be 11 bcs ++ comes first .
+
+----------------------------------------------------------------------------
+	      		 			LOOPS
+----------------------------------------------------------------------------
+
+
+* FOR loop 
+----------------
+FOR( Initialization(i=1) ; Condition(i<10) ;  Updation(i++)  ).
+
+Eg:
+int main(void){
+int i;
+for ( i=1;  i<=100 ;  i++){
+printf("%d  \n",i);
+}
+return EXIT_SUCCESS
+}
+
+OUTPUT: prints numbers from 1 - 100.
+
+
+
+        -------------------------------------------------------------------------------------------------------------
+	USER INPUTS A NUMBER AND ADD ALL NUMBERS  TILL THE ENTERED NUMBER.
+        -------------------------------------------------------------------------------------------------------------
+
+
+int main (void){
+int num, i:
+int sum = 0;
+printf("enter value of num");
+scanf("%d",&num);
+for(i=1 ; i<=num ; i++){
+	sum = sum + i ;
+}
+printf("%d",sum);
+
+return EXIT_SUCCESS
+}
+
+
+      -------------------------------------------------------------------------------------------------------------------------
+        USER INPUTS A NUMBER AND PRINT ALL EVEN NUMBERS TILL THE ENTERED NUMBER.
+      -------------------------------------------------------------------------------------------------------------------------
+
+
+        
+int main (void){
+int num, i;
+printf("enter value of num");
+scanf("%d",&num);
+for (i=2 ; i<=num; i++){       -------->>>>>>--or give i+=2
+	if(i%2==0){
+		printf("%d\n",i};
+	}
+}
+return EXIT_SUCCESS
+}
+
+----------------------------------------------------------------------------
+
+	USER INPUTS A NUMBER AND PRINT IF THE 				ENTERED NUMBER IS PRIME OR NOT
+                            ----------------------------------          
+
+Eg:
+int main (void){
+int num,i ;
+int flag = 0;
+printf("enter the number limit :");
+scanf("%d", &num);
+
+if (num <= 1) {
+        printf("%d is not prime\n", num);
+        return 0;
+    }
+
+for (i=2; i<=num/2 ; i++){  [ num or num/2 can be used]
+	if ( num % i==0){
+		flag = 1;
+		break;}
+}
+}
+	if (flag == 0){
+		printf("%d prime number",num);
+}
+	else {
+		printf("%d not prime number".num);
+}
+
+return 0;
+}
+
+----------------------------------------------------------------------------
+
+                    DRAWINF PATTERNS WITH C
+                                         ---------------
+
+* 90 degree triangle
+   -------------------------
+
+int main (void){
+int num,i,j;
+printf("enter value for num");
+scanf("%d",&num);
+for ( i=1; i<=num; i++){       --->[ loop for creating rows ]
+	for (j=0; j<i; j++){    --->[ loop for number of stars ]
+		printf(" * ");
+	 }
+	printf(" \n");
+}
+return 0;
+}
+
+
+* 90 degree descending
+   -----------------------------
+
+int main (void) {
+    int num, i, j;
+    printf("enter value for num");
+    scanf("%d", &num);
+    for (i = 1; i <= num; i++) {       // loop for creating rows
+        for (j = num; j > i; j--) {    // loop for number of stars
+            printf(" * ");
+        }
+        printf(" \n");
+    }
+    return 0;
+}
+
+
+----------------------------------------------------------------------------
+
+*break
+----------
+exits the loop
+Eg:
+for(i=1; i<10; i++){
+	printf("hi");
+	if(i==5{
+		break;
+		}
+	printf("world");
+printf("\n");
+}
+printf("done")
+
+
+-----------
+OUTPUT:
+-----------
+hiworld
+hiworld
+hiworld
+hiworld
+hi
+done
+
+
+
+*continue
+-------------
+conditions ansarich,
+execute cheyula or cheyum but loop exitum avula.
+
+Eg:
+for(i=1; i<10; i++){
+	printf("hi");
+	if(i==5{
+		continue;
+		}
+	printf("world");
+printf("\n");
+}
+printf("done")
+
+
+-----------
+OUTPUT:
+-----------
+hiworld
+hiworld
+hiworld
+hiworld
+hi
+hiworld     ------ > 9 times.
+hiworld
+hiworld
+hiworld
+hiworld
+done
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                ARRAY
+                                           ----------------
+
+* Array positions starts from zero, [0], [1], [2].
+
+* To represent an array Eg: ' int a[5]; ' -- { here integer  type 5 is declared as an array, the name of the array is 'a'}.
+
+* 
+
+
+
+
+
+
